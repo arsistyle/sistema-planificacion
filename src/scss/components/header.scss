@@ -1,0 +1,111 @@
+.header {
+  background: theme-color();
+  height: 70px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  &__item {
+    &--menu {
+      padding: 15px;
+      cursor: pointer;
+    }
+    &--logo {
+      display: flex;
+      align-items: center;
+    }
+    &--user {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      padding-right: 30px;
+    }
+  }
+  &__logo {
+    margin-right: 20px;
+    padding-right: 20px;
+    padding-left: 10px;
+    border-right: 2px solid white;
+  }
+  &__location {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+  }
+  &__notifications {
+    position: relative;
+    cursor: pointer;
+    &__total {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 10px;
+      font-weight: 600;
+      color: white;
+      background: rgba(255, 153, 51, 0.88);
+    }
+  }
+  &__user {
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    &__welcome {
+      font-size: 12px;
+      line-height: 1;
+    }
+    &__name {
+      font-size: 15px;
+    }
+    &__icon {
+      padding: 10px;
+    }
+  }
+  &__menu {
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    box-shadow: 0px 4.00909px 8.01818px rgba(0, 0, 0, 0.2);
+    background: white;
+    color: theme-color('gris');
+    width: 100%;
+    max-width: 340px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all ease 200ms;
+    &__header {
+      border-bottom: 1px solid rgba(theme-color('gris'), 0.2);
+    }
+    &__title {
+      padding: 15px;
+      font-size: 14px;
+    }
+    &__icon {
+      padding: 0 15px;
+    }
+    &__item {
+      padding: 15px;
+      font-weight: 700;
+      &:nth-of-type(odd) {
+        background: rgba(theme-color('gris'), 0.05);
+      }
+    }
+    &--active {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

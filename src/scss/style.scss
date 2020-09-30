@@ -1,0 +1,65 @@
+@function theme-color($key: "primary") {
+  @return map-get($theme-colors, $key);
+}
+
+$theme-colors: (
+  'primary': #219653,
+  'gris-1': #ecf2f5,
+  'gris': #67758D,
+  'error': #E50027,
+  'done': #7AC098,
+);
+$font-family-sans-serif: 'Montserrat', sans-serif;
+
+/*
+* INCLUDES
+*/
+
+// Helpers
+// @import './helpers/colors.scss';
+
+// Externals
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-datepicker/dist/css/bootstrap-datepicker.css';
+
+// Pages
+@import './pages/login.scss';
+
+// Components
+@import './components/header.scss';
+@import './components/forms.scss';
+@import './components/actividades.scss';
+
+main {
+  min-height: 100vh;
+  background: rgba(theme-color('gris'), .1);
+}
+
+%bgdp {
+  background-image: none !important;
+}
+
+.datepicker {
+  padding: 1rem;
+  table {
+    tr {
+      td {
+        &.active {
+          background-color: theme-color() !important;
+          @extend %bgdp;
+          color: white;
+          &:hover {
+            @extend %bgdp;
+          }
+        }
+        &.today {
+          background-color: rgba(theme-color(), .3) !important;
+          @extend %bgdp;
+          &:hover {
+            @extend %bgdp;
+          }
+        }
+      }
+    }
+  }
+}

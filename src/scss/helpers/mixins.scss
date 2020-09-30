@@ -1,0 +1,31 @@
+$breakpoints: (
+  sm-mw: "max-width:543px",
+  sm: "min-width:544px",
+  md-mw: "max-width:767px",
+  md: "min-width:768px",
+  lg-mw: "max-width:991px",
+  lg: "min-width:992px",
+  xl-mw: "max-width:1199px",
+  xl: "min-width:1200px",
+  xxl-mw: "max-width:1399px",
+  xxl: "min-width:1400px"
+);
+
+@mixin break($size) {
+  @media (map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+
+@mixin transicion($el: all, $tipo: ease, $tiempo: 200ms) {
+  transition: $el $tipo $tiempo;
+}
+
+@mixin posicion($p: absolute, $t: 0, $r: 0, $b: 0, $l: 0) {
+  position: $p;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}

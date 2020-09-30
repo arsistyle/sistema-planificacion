@@ -1,0 +1,39 @@
+.actividades {
+  &__title {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  &__icon {
+    margin-right: 10px;
+    &--atraso {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      color: white;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: theme-color('error');
+    }
+  }
+  &__compromiso {
+    font-size: 12px;
+    font-weight: normal;
+    &__fecha {
+      margin-left: 10px;
+      font-weight: 700;
+      &--fail {
+        color: theme-color('error');
+      }
+      &--success {
+        color: theme-color('done');
+      }
+    }
+  }
+  &__fecha {
+    font-size: 12px;
+    font-weight: normal;
+    opacity: .5;
+  }
+}

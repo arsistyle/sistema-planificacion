@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+html(lang="es")
+  include ./includes/head
+  body
+    main
+      .login
+        .login__container
+          .login__header
+            h1.login__title Sistema de Planificación de la Producción
+            h3.login__subtitle Iniciar sesión
+          form.__form(action="")
+            .form-group
+              label(for="email") Correo electrónico
+              input.form-control(type="email", name="email", id="email")
+            .form-group
+              label(for="pass") Contraseña
+              .input-group
+                input.form-control(type='password', name="pass", id="pass")
+                .input-group-prepend
+                  .input-group-text @
+            .login__footer.d-flex.flex-column.align-items-center
+              a.btn.btn-link ¿Olvidaste tu contraseña?
+              button.btn.btn-primary Ingresar

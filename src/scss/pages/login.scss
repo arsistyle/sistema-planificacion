@@ -1,0 +1,44 @@
+.login {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #318ab0 0%,
+    rgba(94, 164, 193, 0.781598) 67.67%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__container {
+    padding: 40px;
+    background: rgba(white,.9);
+    width: 100%;
+    max-width: 630px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.14);
+  }
+  &__header {
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto 30px;
+  }
+  &__title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #304539;
+    margin-bottom: 26px;
+  }
+  &__subtitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #304539;
+  }
+  &__footer {
+    > :last-child {
+      width: 100%;
+      max-width: 270px;
+    }
+  }
+}
