@@ -29,7 +29,7 @@ import {
   DATEPICKER,
   TABLESORTER,
 } from './js/main';
-import { validarFormPerfil } from './js/forms';
+import './js/forms';
 
 // Invocacion de funciones globales
 SHOW_PASS();
