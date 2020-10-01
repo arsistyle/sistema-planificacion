@@ -1,12 +1,16 @@
 .header {
   background: theme-color();
-  height: 70px;
   display: flex;
   align-items: center;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+  z-index: 99;
+  height: header(xs);
+  @include media-breakpoint-up(md) {
+    height: header();
+  }
   &__item {
     &--menu {
       padding: 15px;
@@ -20,14 +24,18 @@
       display: flex;
       align-items: center;
       margin-left: auto;
-      padding-right: 30px;
+      @include media-breakpoint-up(md) {
+        padding-right: 30px;
+      }
     }
   }
   &__logo {
-    margin-right: 20px;
-    padding-right: 20px;
     padding-left: 10px;
-    border-right: 2px solid white;
+    @include media-breakpoint-up(md) {
+      margin-right: 20px;
+      padding-right: 20px;
+      border-right: 2px solid white;
+    }
   }
   &__location {
     color: white;

@@ -1,5 +1,6 @@
 import 'jquery';
 import 'jquery-ui';
+import $ from 'jquery';
 
 // EXTERNALS
 import 'bootstrap';
@@ -16,6 +17,25 @@ import './pug/login.pug';
 
 // ASSETS
 import './assets/logo.svg';
+import './assets/bg.png';
 
 // JS
-import './js/main';
+import {
+  SHOW_PASS,
+  MENU_DESPLEGABLE,
+  MENU_PRINCIPAL,
+  MODALS,
+  HEADER_MENUES,
+  DATEPICKER,
+  TABLESORTER,
+} from './js/main';
+import { validarFormPerfil } from './js/forms';
+
+// Invocacion de funciones globales
+SHOW_PASS();
+MENU_DESPLEGABLE();
+MENU_PRINCIPAL();
+MODALS();
+HEADER_MENUES();
+DATEPICKER();
+TABLESORTER();

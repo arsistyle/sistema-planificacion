@@ -1,0 +1,38 @@
+$themes-lightbox: ('success', 'error', 'info', 'warning');
+
+.lightbox {
+  $t: &;
+  background: white;
+  border: 1px solid theme-color('gris');
+  width: 100%;
+  max-width: 720px;
+  &__header {
+    padding: 30px;
+    border-bottom: 1px solid theme-color('gris');
+    &__icon {
+      margin-right: 10px;
+    }
+    &__title {
+      color: theme-color('gris');
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+  }
+  &__content {
+    padding: 30px;
+  }
+  &__footer {
+    border: 0;
+    padding: 30px;
+  }
+  @each $theme in $themes-lightbox {
+    &[data-theme="#{$theme}"] {
+      #{$t}__header {
+        background: rgba(theme-color('#{$theme}'), .1);
+        svg {
+          fill: theme-color('#{$theme}');
+        }
+      }
+    }
+  }
+}

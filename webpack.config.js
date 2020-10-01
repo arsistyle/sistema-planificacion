@@ -6,10 +6,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HTMLS = ['index', 'login'];
 
 module.exports = {
+  devtool: 'source-map',
   entry: './src/index.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'public'),
+    umdNamedDefine: true, // optional
+    globalObject: 'this', // optional
   },
   module: {
     rules: [

@@ -1,0 +1,73 @@
+#editar-perfil.modal.fade(tabindex='-1' aria-hidden='true' backdrop="static" show="true" role="document")
+  .modal-dialog
+    .lightbox.lightbox--bg.lightbox--form(data-theme="info")
+      .modal-content
+        .lightbox__header.d-flex.align-items-center
+          .lightbox__header__icon
+            <svg width="30" height="30" viewBox="0 0 16 16" class="bi bi-exclamation-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+            </svg>
+          .lightbox__header__title Editar Usuario
+        .lightbox__content
+          form#form-perfil.form(action="")
+            .form-group
+              label(for="rut") RUT
+              input.form-control.tipo_rut(type="text" name="rut" id="rut")
+            .form-group
+              label(for="nombre") Nombre
+              input.form-control(type="text" name="nombre" id="nombre")
+            .form-group
+              label(for="email") Correo electrónico
+              input.form-control.tipo_email(type="text" name="email" id="email")
+            .form-group
+              label(for='grupo-usuario') Grupo de usuario
+              select#grupo-usuario.form-control
+                option 1
+                option 2
+                option 3
+                option 4
+                option 5
+            .alert.alert-warning(role='alert' style="display:none" id="errores-form-perfil")
+        .lightbox__footer.modal-footer
+          a.btn.btn-secondary(data-dismiss="modal") Cancelar
+          button.btn.btn-primary(onclick="validarFormPerfil('#form-perfil, #editar-perfil-success, #editar-perfil-error')") Guardar cambios
+
+        // Borrar
+        a.btn(data-modal-open href="#editar-perfil-success") Alerta éxito
+        a.btn(data-modal-open href="#editar-perfil-error") Alerta error
+
+
+// ALERTAS MODALS
+
+#editar-perfil-success.modal.fade(tabindex='-1' aria-hidden='true' backdrop="static" show="true" role="dialog")
+  .modal-dialog.modal-dialog-centered.modal-sm
+    .lightbox.lightbox--bg.lightbox--form(data-theme="success")
+      .modal-content
+        .lightbox__header.d-flex.align-items-center
+          .lightbox__header__icon
+            <svg width="30" height="30" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+            </svg>
+          .lightbox__header__title Éxito
+        .lightbox__content
+          h4 Datos actualizados correctamente
+          .lightbox__footer.modal-footer
+            a.btn.btn-primary(href="#editar-perfil, #editar-perfil-success" data-modal-close) Aceptar
+
+#editar-perfil-error.modal.fade(tabindex='-1' aria-hidden='true' show="true" role="dialog")
+  .modal-dialog.modal-dialog-centered.modal-sm
+    .lightbox.lightbox--bg.lightbox--form(data-theme="error")
+      .modal-content
+        .lightbox__header.d-flex.align-items-center
+          .lightbox__header__icon
+            <svg width="30" height="30" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+            </svg>
+          .lightbox__header__title Error
+        .lightbox__content
+          h4.align-center Datos ingresados incorrectos. Favor ingresar nuevamente
+          .lightbox__footer.modal-footer.justify-content-center
+            a.btn.btn-primary(href="#editar-perfil, #editar-perfil-success" data-modal-close) Aceptar
