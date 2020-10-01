@@ -1,0 +1,23 @@
+.menu {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  bottom: 0;
+  background: theme-color('negro');
+  padding: 15px;
+  .submenu {
+    list-style-type: none;
+    a {
+      display: flex;
+      align-items: center;
+      color: white;
+      padding: 10px;
+      svg {
+        margin-right: 10px;
+      }
+      span {
+        line-height: 1;
+      }
+    }
+  }
+}

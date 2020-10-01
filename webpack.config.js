@@ -54,6 +54,12 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': "jquery'",
+      'window.$': 'jquery',
+    }),
     ...HTMLS.map(
       (x) =>
         new HtmlWebpackPlugin({
@@ -64,4 +70,9 @@ module.exports = {
     ),
     new MiniCssExtractPlugin(),
   ],
+  resolve: {
+    alias: {
+      'jquery-ui': 'jquery-ui-dist/jquery-ui.js',
+    },
+  },
 };

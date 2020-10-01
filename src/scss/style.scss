@@ -4,8 +4,9 @@
 
 $theme-colors: (
   'primary': #219653,
-  'gris-1': #ecf2f5,
+  'negro': #333333,
   'gris': #67758D,
+  'gris-1': #ecf2f5,
   'error': #E50027,
   'done': #7AC098,
 );
@@ -27,12 +28,24 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 
 // Components
 @import './components/header.scss';
+@import './components/menu.scss';
 @import './components/forms.scss';
 @import './components/actividades.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 
 main {
   min-height: 100vh;
   background: rgba(theme-color('gris'), .1);
+  padding-top: 70px;
 }
 
 %bgdp {

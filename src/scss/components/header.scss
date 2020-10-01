@@ -98,6 +98,8 @@
     &__item {
       padding: 15px;
       font-weight: 700;
+      text-decoration: none;
+      color: inherit;
       &:nth-of-type(odd) {
         background: rgba(theme-color('gris'), 0.05);
       }
