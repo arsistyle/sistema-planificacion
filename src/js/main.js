@@ -95,7 +95,6 @@ export const MENU_DESPLEGABLE = () => {
       abrirSubmenu0.append(
         '<svg xmlns="http://www.w3.org/2000/svg" class="menu__icon" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6.1 5.4 11.1 1" style="stroke-width:2;stroke:white"/></svg>'
       );
-      console.log(active);
       $(el)
         .find('.submenu--uno')
         .accordion({
