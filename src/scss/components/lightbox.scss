@@ -27,6 +27,9 @@ $themes-lightbox: ('success', 'error', 'info', 'warning');
   &__footer {
     border: 0;
     padding: 0 30px 30px;
+    .btn {
+      min-width: 100px;
+    }
   }
   @each $theme in $themes-lightbox {
     &[data-theme="#{$theme}"] {

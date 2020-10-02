@@ -1,0 +1,33 @@
+.tabla-filtro {
+  $t: &;
+  form {
+    margin-bottom: 30px;
+  }
+  @include media-breakpoint-up(md) {
+    display: flex;
+    &__item {
+      transition: all ease 200ms;
+      overflow: hidden;
+      &--filtro {
+        width: 0;
+        height: 0;
+      }
+      &--tabla {
+        // width: calc(100% - 300px);
+        // overflow-x: auto;
+        width: 100%;
+      }
+    }
+    &.active {
+      #{$t}__item {
+        &--filtro {
+          width: 300px;
+          height: auto;
+        }
+        &--tabla {
+          width: calc(100% - 300px);
+        }
+      }
+    }
+  }
+}

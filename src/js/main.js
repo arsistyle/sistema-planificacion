@@ -34,16 +34,18 @@ export const SHOW_PASS = () => {
 export const MENU_PRINCIPAL = () => {
   const btn = document.querySelector('.abrir-menu');
   const menu = document.querySelector('.menu');
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    menu.classList.toggle('menu--active');
-  });
-  menu.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
-  document.body.addEventListener('click', (e) => {
-    menu.classList.remove('menu--active');
-  });
+  if (btn && menu) {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.classList.toggle('menu--active');
+    });
+    menu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+    document.body.addEventListener('click', (e) => {
+      menu.classList.remove('menu--active');
+    });
+  }
 };
 
 /**
@@ -53,23 +55,25 @@ export const HEADER_MENUES = () => {
   const btns = document.querySelectorAll('[data-toggle-menu]');
   const menues = document.querySelectorAll('.header__menu');
   // const menuesActivos = document.querySelectorAll('.header__menu--active');
-  btns.forEach((x) => {
-    x.addEventListener('click', (e) => {
-      e.stopPropagation();
-      menues.forEach((x) => x.classList.remove('header__menu--active'));
-      const menu = document.querySelector(e.currentTarget.getAttribute('data-toggle-menu'));
-      // console.log(menu)
-      if (menu) {
-        menu.classList.contains('header__menu--active')
-          ? menu.classList.remove('header__menu--active')
-          : menu.classList.add('header__menu--active');
-      }
+  if (btns.length && menues.length) {
+    btns.forEach((x) => {
+      x.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menues.forEach((x) => x.classList.remove('header__menu--active'));
+        const menu = document.querySelector(e.currentTarget.getAttribute('data-toggle-menu'));
+        // console.log(menu)
+        if (menu) {
+          menu.classList.contains('header__menu--active')
+            ? menu.classList.remove('header__menu--active')
+            : menu.classList.add('header__menu--active');
+        }
+      });
     });
-  });
-  document.body.addEventListener('click', (e) => {
-    menues.forEach((x) => x.classList.remove('header__menu--active'));
-  });
-  menues.forEach((x) => x.addEventListener('click', (e) => e.stopPropagation()));
+    document.body.addEventListener('click', (e) => {
+      menues.forEach((x) => x.classList.remove('header__menu--active'));
+    });
+    menues.forEach((x) => x.addEventListener('click', (e) => e.stopPropagation()));
+  }
 };
 
 /**
@@ -170,21 +174,25 @@ export const MENU_DESPLEGABLE = () => {
 export const MODALS = () => {
   const open = document.querySelectorAll('[data-modal-open]');
   const close = document.querySelectorAll('[data-modal-close]');
-  open.forEach((x) => {
-    x.addEventListener('click', (e) => {
-      const target = $(e.currentTarget.getAttribute('href'));
-      let backdrop = target.attr('backdrop') ? target.attr('backdrop') : true;
-      let show = target.attr('show') ? Boolean(target.attr('show')) : true;
-      target.modal({ backdrop, show });
+  if (open || close) {
+    open.forEach((x) => {
+      x.addEventListener('click', (e) => {
+        const target = $(e.currentTarget.getAttribute('href'));
+        let backdrop = target.attr('backdrop') ? target.attr('backdrop') : true;
+        let show = target.attr('show') ? Boolean(target.attr('show')) : true;
+        target.modal({ backdrop, show });
+        return false;
+      });
     });
-  });
-  close.forEach((x) => {
-    x.addEventListener('click', (e) => {
-      // console.log(e)
-      const target = $(e.currentTarget.getAttribute('href'));
-      target.modal('hide');
+    close.forEach((x) => {
+      x.addEventListener('click', (e) => {
+        // console.log(e)
+        const target = $(e.currentTarget.getAttribute('href'));
+        target.modal('hide');
+        return false;
+      });
     });
-  });
+  }
 };
 
 /**
@@ -248,8 +256,11 @@ export const DATEPICKER = () => {
 /**
  * TableSorter
  */
-export const TABLESORTER = () => {
-  $('#example').DataTable({
+export const DATA_TABLE = () => {
+  $('.data-table').DataTable({
+    responsive: true,
+    dom:
+      '<"top"<"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"f>>>rt<"row"<"col-sm-12 col-md-5"l><"col-sm-12 col-md-7"p>>',
     language: {
       lengthMenu: 'Registros por página _MENU_',
       zeroRecords: 'Sin resultados',
@@ -272,4 +283,26 @@ export const TABLESORTER = () => {
       },
     },
   });
+};
+
+/**
+ * Filtro
+ */
+
+export const FILTRO = () => {
+  const btns = document.querySelectorAll('[data-filtro]');
+  if (btns.length) {
+    btns.forEach((x) => {
+      const filtro = document.querySelector(x.getAttribute('data-filtro'));
+      const cerrar = filtro.querySelector('[data-filtro-cerrar]');
+      x.addEventListener('click', (e) => {
+        filtro.classList.toggle('active');
+      });
+      if (cerrar) {
+        cerrar.addEventListener('click', (e) => {
+          filtro.classList.remove('active');
+        });
+      }
+    });
+  }
 };

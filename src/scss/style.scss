@@ -1,23 +1,23 @@
-@function theme-color($key: "primary") {
+@function theme-color($key: 'primary') {
   @return map-get($theme-colors, $key);
 }
 
 @function header($key: 1) {
   @if $key == xs {
-    @return 50px
+    @return 50px;
   } @else {
-    @return 70px
+    @return 70px;
   }
 }
 
 $theme-colors: (
   'primary': #219653,
   'negro': #333333,
-  'gris': #67758D,
+  'gris': #67758d,
   'gris-1': #ecf2f5,
-  'error': #E50027,
-  'done': #7AC098,
-  'info': #3086EB
+  'error': #e50027,
+  'done': #7ac098,
+  'info': #3086eb,
 );
 $font-family-sans-serif: 'Montserrat', sans-serif;
 
@@ -31,6 +31,7 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 // Externals
 @import '~bootstrap/scss/bootstrap';
 @import '~bootstrap-datepicker/dist/css/bootstrap-datepicker.css';
+@import './external/datatable-bs4.scss';
 
 // Pages
 @import './pages/login.scss';
@@ -41,6 +42,9 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 @import './components/forms.scss';
 @import './components/actividades.scss';
 @import './components/lightbox.scss';
+@import './components/breadcrumbs.scss';
+@import './components/tablas.scss';
+@import './components/filtro.scss';
 
 * {
   padding: 0;
@@ -50,11 +54,31 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 
 main {
   min-height: 100vh;
-  background: rgba(theme-color('gris'), .1);
   padding-top: header(xs);
-  background: url('../assets/bg.png') center center no-repeat;
+  background: rgba(theme-color('gris'), 0.1) url('../assets/bg.png') center center no-repeat;
   @include media-breakpoint-up(md) {
     padding-top: header();
+  }
+}
+
+.wrapper {
+  padding: 0 5px 5px;
+  @include media-breakpoint-up(md) {
+    padding: 0 15px 15px;
+  }
+  &__container {
+    min-height: 90vh;
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    h1 {
+      font-weight: 600;
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+    @include media-breakpoint-up(md) {
+      padding: 30px;
+    }
   }
 }
 
@@ -72,12 +96,17 @@ main {
   background: white;
 }
 
+/*
+* Custom 
+*/
+
 %bgdp {
   background-image: none !important;
 }
 
 .datepicker {
   padding: 1rem;
+  z-index: 100 !important;
   table {
     tr {
       td {
@@ -90,7 +119,7 @@ main {
           }
         }
         &.today {
-          background-color: rgba(theme-color(), .3) !important;
+          background-color: rgba(theme-color(), 0.3) !important;
           @extend %bgdp;
           &:hover {
             @extend %bgdp;
@@ -98,5 +127,51 @@ main {
         }
       }
     }
+  }
+}
+
+.table {
+  &__icons {
+    &__item {
+      margin-right: 10px;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+  tr{
+    &:hover {
+      td {
+        background: rgba(theme-color('gris'), .2);
+      }
+    }
+  }
+}
+.data-table {
+  th {
+    min-width: 100px;
+  }
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  .btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    &:last-of-type {
+      margin-right: 0;
+    }
+    svg {
+      margin-left: 10px;
+    }
+  }
+}
+
+.input-group {
+  flex-wrap: nowrap;
+  &-prepend {
+    width: 100%;
   }
 }

@@ -13,25 +13,24 @@
           form#form-perfil.form(action="")
             .form-group
               label(for="rut") RUT
-              input.form-control.tipo_rut.requerido(type="text" name="rut" id="rut")
+              input.form-control(type="text" name="rut" id="rut")
             .form-group
               label(for="nombre") Nombre
-              input.form-control.requerido(type="text" name="nombre" id="nombre")
+              input.form-control(type="text" name="nombre" id="nombre")
             .form-group
               label(for="email") Correo electrónico
-              input.form-control.tipo_email.requerido(type="text" name="email" id="email")
+              input.form-control(type="email" name="email" id="email")
             .form-group
               label(for='grupo-usuario') Grupo de usuario
-              select#grupo-usuario.requerido.form-control
+              select#grupo-usuario.form-control
                 option 1
                 option 2
                 option 3
                 option 4
                 option 5
-            .alert.alert-error(role='alert' style="display:none" id="errores_form-perfil")
         .lightbox__footer.modal-footer
           a.btn.btn-secondary(data-dismiss="modal") Cancelar
-          button.btn.btn-primary(onclick="validarFormPerfil('form-perfil', '#editar-perfil-success', '#editar-perfil-error')") Guardar cambios
+          button.btn.btn-primary Guardar cambios
 
 // ALERTAS MODALS
 

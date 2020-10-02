@@ -27,9 +27,9 @@ import {
   MODALS,
   HEADER_MENUES,
   DATEPICKER,
-  TABLESORTER,
+  DATA_TABLE,
+  FILTRO,
 } from './js/main';
-import './js/forms';
 
 // Invocacion de funciones globales
 SHOW_PASS();
@@ -38,4 +38,5 @@ MENU_PRINCIPAL();
 MODALS();
 HEADER_MENUES();
 DATEPICKER();
-TABLESORTER();
+DATA_TABLE();
+FILTRO();

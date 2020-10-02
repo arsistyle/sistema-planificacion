@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+html(lang="es")
+  include ./includes/head
+  body
+    main
+      include ./includes/header
+      include ./includes/menu
+      .breadcrumbs
+        .breadcrumbs__item
+          a.breadcrumbs__link(href="#") Mantenedores
+        .breadcrumbs__item
+          span.breadcrumbs__separator
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="9" viewBox="0 0 8 9" fill="#B6B6B6"><style>.a{fill:#B6B6B6;}</style><path d="M4.2 7L6.5 4.1 4.2 1.3C4.1 1.1 4 0.9 4 0.7 4 0.5 4.1 0.4 4.2 0.2 4.4-0.1 4.8-0.1 5 0.2L7.8 3.6C8.1 3.9 8.1 4.4 7.8 4.6L5 8C4.8 8.3 4.4 8.3 4.2 8 3.9 7.7 3.9 7.3 4.2 7Z" class="a"/><path d="M0.2 7L2.5 4.1 0.2 1.3C0.1 1.1 0 0.9 0 0.7 0 0.5 0.1 0.4 0.2 0.2 0.4-0.1 0.8-0.1 1 0.2L3.8 3.6C4.1 3.9 4.1 4.4 3.8 4.6L1 8C0.8 8.3 0.4 8.3 0.2 8 -0.1 7.7-0.1 7.3 0.2 7Z" class="a"/></svg>
+        .breadcrumbs__item
+          span.breadcrumbs__current Mantenedor De Equipos
+      section.wrapper
+        .wrapper__container
+          h1 Mantenedor de Equipos
+          .btns
+            a.btn.btn-primary(href="#" data-filtro=".tabla-filtro") Filtrar por
+            a.btn.btn-primary(href="#agregar-equipo" data-modal-open) Agregar Equipo
+            a.btn.btn-outline-primary(href="#") Exportar
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
+                <path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
+              </svg>
+            a.btn.btn-outline-primary(href="#") Recargar
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-clockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+              </svg>
+          
+          .tabla-filtro
+            .tabla-filtro__item.tabla-filtro__item--filtro
+              .filtro
+                h5.filtro__title Filtro de Búsqueda
+                .filtro__cerrar(data-filtro-cerrar)
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                  </svg>
+                .filtro__container
+                  form(action="")
+                    .form-group
+                      label(for="fecha-desde") Desde
+                      .input-group
+                        .input-group-prepend
+                          input.form-control.datepicker-input(type='text' id="fecha-desde" name="fecha-desde")
+                        .input-group-append
+                          label.input-group-text(for="fecha-desde")
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar4-week" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z"/>
+                              <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                            </svg>
+                    .form-group
+                      label(for="fecha-hasta") Hasta
+                      .input-group
+                        .input-group-prepend
+                          input.form-control.datepicker-input(type='text' id="fecha-hasta" name="fecha-hasta")
+                        .input-group-append
+                          label.input-group-text(for="fecha-hasta")
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar4-week" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z"/>
+                              <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                            </svg>
+                    .form-group
+                      label(for='estado') Estado
+                      select#estado.form-control(name="estado")
+                        option 1
+                        option 2
+                        option 3
+                        option 4
+                        option 5
+                    .form-group
+                      label(for='tienda') Tienda
+                      select#tienda.form-control(name="tienda")
+                        option 1
+                        option 2
+                        option 3
+                        option 4
+                        option 5
+                    .form-group
+                      label(for="marca") Marca
+                      input#marca.form-control(type="text", name="marca")
+                    .form-group
+                      label(for="tipo-equipo") Desc Tipo Equipo
+                      input#tipo-equipo.form-control(type="text", name="tipo-equipo")
+                    .form-group
+                      label(for="modelo") Modelo
+                      input#modelo.form-control(type="text", name="modelo")
+                    .btns
+                      button.btn.btn-primary Filtrar
+                      button.btn.btn-outline-primary(type="reset") Limpiar
+            .tabla-filtro__item.tabla-filtro__item--tabla
+              .dataTables_wrapper.dt-bootstrap4
+                table.table.table-striped.table-responsive-xl.data-table
+                  thead
+                    tr
+                      th Acciones
+                      th ID
+                      th Desc Nodo
+                      th Nombre Equipo
+                      th Desc Tipo Equipo
+                      th Marca
+                      th Modelo
+                      th Desc Proceso
+                      th UME
+                  tbody
+                    tr
+                      td
+                        .table__icons
+                          a.table__icons__item(href="#eliminar-equipo" data-modal-open)
+                            <svg width="18px" height="18px" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                            </svg>
+                          a.table__icons__item(href="#editar-equipo" data-modal-open)
+                            <svg width="18px" height="18px" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                            </svg>
+                      td ID 1
+                      td PLC San Bern
+                      td Dimen 1
+                      td Dimen Vertical
+                      td Holzher
+                      td 2160
+                      td Corte
+                      td MTSLI
+                    tr
+                      td
+                        .table__icons
+                          a.table__icons__item(href="#eliminar-equipo" data-modal-open)
+                            <svg width="18px" height="18px" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                            </svg>
+                          a.table__icons__item(href="#editar-equipo" data-modal-open)
+                            <svg width="18px" height="18px" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                            </svg>
+                      td ID 2
+                      td PLC San Bern
+                      td Dimen 1
+                      td Dimen Vertical
+                      td Holzher
+                      td 2160
+                      td Corte
+                      td MTSLI
+                    tr
+                      td
+                        .table__icons
+                          a.table__icons__item(href="#eliminar-equipo" data-modal-open)
+                            <svg width="18px" height="18px" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                            </svg>
+                          a.table__icons__item(href="#editar-equipo" data-modal-open)
+                            <svg width="18px" height="18px" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                            </svg>
+                      td ID 3
+                      td PLC San Bern
+                      td Enchapad 1
+                      td Perforadora
+                      td Harwi
+                      td T300
+                      td Mecanizado
+                      td PERFXMIN
+
+          // Modal agregar equipo
+          #agregar-equipo.modal.fade(tabindex='-1' aria-hidden='true' backdrop="static" show="true" role="document")
+            .modal-dialog.modal-dialog-centered.modal-md
+              .lightbox.lightbox--bg.lightbox--form(data-theme="info")
+                .lightbox__main.modal-content
+                  .lightbox__header.d-flex.align-items-center
+                    .lightbox__header__icon
+                      <svg width="30" height="30" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                        <circle cx="8" cy="4.5" r="1"/>
+                      </svg>
+                    .lightbox__header__title Agregar equipo
+                  .lightbox__content
+                    form(action="")
+                      .form-group
+                        label(for="nodo") Nodo
+                        select#nodo.form-control(name="nodo")
+                          option 1
+                          option 2
+                          option 3
+                          option 4
+                          option 5
+                      .form-group
+                        label(for="nombre-equipo") Nombre Equipo
+                        input.form-control#nombre-equipo(type="text", name="nombre-equipo")
+                      .form-group
+                        label(for="descripcion-equipo") Descripción Tipo Equipo
+                        input.form-control#descripcion-equipo(type="text", name="descripcion-equipo")
+                  .lightbox__footer.modal-footer
+                    a.btn.btn-outline-primary(href="#agregar-equipo" data-modal-close) Cancelar
+                    a.btn.btn-primary(href="#agregar-equipo" data-modal-close) Guardar cambios
+          // Modal Editar equipo
+          #editar-equipo.modal.fade(tabindex='-1' aria-hidden='true' backdrop="static" show="true" role="document")
+            .modal-dialog.modal-dialog-centered.modal-md
+              .lightbox.lightbox--bg.lightbox--form(data-theme="info")
+                .lightbox__main.modal-content
+                  .lightbox__header.d-flex.align-items-center
+                    .lightbox__header__icon
+                      <svg width="30" height="30" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                        <circle cx="8" cy="4.5" r="1"/>
+                      </svg>
+                    .lightbox__header__title Editar equipo
+                  .lightbox__content
+                    form(action="")
+                      .form-group
+                        label(for="nodo") Nodo
+                        select#nodo.form-control(name="nodo")
+                          option 1
+                          option 2
+                          option(selected) 3
+                          option 4
+                          option 5
+                      .form-group
+                        label(for="nombre-equipo") Nombre Equipo
+                        input.form-control#nombre-equipo(type="text", name="nombre-equipo" value="Dimensiador 2")
+                      .form-group
+                        label(for="descripcion-equipo") Descripción Tipo Equipo
+                        input.form-control#descripcion-equipo(type="text", name="descripcion-equipo")
+                  .lightbox__footer.modal-footer
+                    a.btn.btn-outline-primary(href="#editar-equipo" data-modal-close) Cancelar
+                    a.btn.btn-primary(href="#editar-equipo" data-modal-close) Guardar cambios
+          // Modal eliminar equipo
+          #eliminar-equipo.modal.fade(tabindex='-1' aria-hidden='true' show="true" role="dialog")
+            .modal-dialog.modal-dialog-centered.modal-md
+              .lightbox.lightbox--bg.lightbox--form(data-theme="error")
+                .lightbox__main.modal-content
+                  .lightbox__header.d-flex.align-items-center
+                    .lightbox__header__icon
+                      <svg width="30px" height="30px" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                      </svg>
+                    .lightbox__header__title Advertencia
+                  .lightbox__content
+                    h5.align-center  ¿Está seguro de eliminar el registro?
+                  .lightbox__footer.modal-footer
+                    a.btn.btn-outline-danger(href="#eliminar-equipo" data-modal-close) Si
+                    a.btn.btn-outline-primary(href="#eliminar-equipo" data-modal-close) No
+
+
+      include ./includes/footer

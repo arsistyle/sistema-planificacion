@@ -1,17 +1,18 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BeautifyHtmlWebpackPlugin = require('beautify-html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const HTMLS = ['index', 'login'];
+const HTMLS = ['index', 'login', 'mantenedor-equipos', 'componentes'];
 
 module.exports = {
-  mode: "production",
+  mode: 'production',
   devtool: 'source-map',
   entry: './src/index.js',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, ''),
     umdNamedDefine: true, // optional
     globalObject: 'this', // optional
   },
@@ -19,8 +20,8 @@ module.exports = {
     rules: [
       // HTML
       {
-        include: /\.pug/,
-        loader: ['html-loader', 'pug-html-loader'],
+        test: /\.pug/,
+        loaders: ['html-loader', 'pug-html-loader'],
       },
 
       // JS
@@ -70,8 +71,10 @@ module.exports = {
           filename: `${x}.html`,
           template: `./src/pug/${x}.pug`,
           inject: true,
+          minify: false,
         })
     ),
+    new BeautifyHtmlWebpackPlugin(),
     new MiniCssExtractPlugin(),
   ],
   resolve: {
