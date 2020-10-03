@@ -45,6 +45,8 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 @import './components/breadcrumbs.scss';
 @import './components/tablas.scss';
 @import './components/filtro.scss';
+@import './components/nav.scss';
+@import './components/orden-detalle.scss';
 
 * {
   padding: 0;
@@ -145,6 +147,9 @@ main {
         background: rgba(theme-color('gris'), .2);
       }
     }
+  }
+  &-bg {
+    background: rgba(theme-color('gris'), .3);
   }
 }
 .data-table {

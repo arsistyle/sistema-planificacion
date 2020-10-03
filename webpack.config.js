@@ -4,7 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BeautifyHtmlWebpackPlugin = require('beautify-html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const HTMLS = ['index', 'login', 'mantenedor-equipos', 'componentes'];
+const HTMLS = [
+  'index',
+  'login',
+  'mantenedor-equipos',
+  'seguimiento-ordenes',
+  'seguimiento-ordenes-detalle',
+  'componentes',
+];
 
 module.exports = {
   mode: 'production',
