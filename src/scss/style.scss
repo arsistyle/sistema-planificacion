@@ -141,15 +141,40 @@ main {
       }
     }
   }
-  tr{
+  thead {
+    th {
+      vertical-align: top;
+    }
+  }
+  tr {
     &:hover {
-      td {
-        background: rgba(theme-color('gris'), .2);
+      > td {
+        background: rgba(theme-color('gris'), 0.2);
       }
     }
   }
   &-bg {
-    background: rgba(theme-color('gris'), .3);
+    background: rgba(theme-color('gris'), 0.3);
+  }
+  &-child {
+    padding: 0 !important;
+    tr,
+    tr:hover {
+      background: none !important;
+    }
+    table {
+      margin-bottom: 0;
+      width: calc(30px * 7);
+      td,
+      th {
+        border: 0;
+        width: 30px;
+        min-width: 0;
+        font-size: 8px;
+        text-align: center;
+        background: none !important;
+      }
+    }
   }
 }
 .data-table {

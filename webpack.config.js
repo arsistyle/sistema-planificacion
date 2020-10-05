@@ -10,6 +10,8 @@ const HTMLS = [
   'mantenedor-equipos',
   'seguimiento-ordenes',
   'seguimiento-ordenes-detalle',
+  'mantenedor-nodos',
+  'mantenedor-nodos-especialidades',
   'componentes',
 ];
 
