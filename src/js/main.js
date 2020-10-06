@@ -260,7 +260,7 @@ export const DATA_TABLE = () => {
   $('.data-table').DataTable({
     responsive: true,
     dom:
-      '<"top"<"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"f>>>rt<"row"<"col-sm-12 col-md-5"l><"col-sm-12 col-md-7"p>>',
+      '<"top"<"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"f>>>rt<"bottom"<"row"<"col-sm-12 col-md-5"l><"col-sm-12 col-md-7"p>>>',
     language: {
       lengthMenu: 'Registros por página _MENU_',
       zeroRecords: 'Sin resultados',
@@ -305,4 +305,24 @@ export const FILTRO = () => {
       }
     });
   }
+};
+
+/**
+ * Destacar Fila Tabla
+ */
+
+export const DESTACAR_FILA = () => {
+  const tablas = document.querySelectorAll('.table');
+  tablas.forEach((x) => {
+    const trs = x.querySelectorAll('tbody tr');
+    trs.forEach((t) => {
+      t.addEventListener('click', (e) => {
+        if (t.classList.contains('active')) t.classList.remove('active');
+        else {
+          trs.forEach((tr) => tr.classList.remove('active'));
+          t.classList.add('active');
+        }
+      });
+    });
+  });
 };

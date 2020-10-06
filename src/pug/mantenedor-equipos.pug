@@ -44,7 +44,7 @@ html(lang="es")
                       label(for="fecha-desde") Desde
                       .input-group
                         .input-group-prepend
-                          input.form-control.datepicker-input(type='text' id="fecha-desde" name="fecha-desde")
+                          input.form-control.form-control-sm.datepicker-input(type='text' id="fecha-desde" name="fecha-desde")
                         .input-group-append
                           label.input-group-text(for="fecha-desde")
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar4-week" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +55,7 @@ html(lang="es")
                       label(for="fecha-hasta") Hasta
                       .input-group
                         .input-group-prepend
-                          input.form-control.datepicker-input(type='text' id="fecha-hasta" name="fecha-hasta")
+                          input.form-control.form-control-sm.datepicker-input(type='text' id="fecha-hasta" name="fecha-hasta")
                         .input-group-append
                           label.input-group-text(for="fecha-hasta")
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar4-week" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +64,7 @@ html(lang="es")
                             </svg>
                     .form-group
                       label(for='estado') Estado
-                      select#estado.form-control(name="estado")
+                      select#estado.form-control.form-control-sm(name="estado")
                         option 1
                         option 2
                         option 3
@@ -72,7 +72,7 @@ html(lang="es")
                         option 5
                     .form-group
                       label(for='tienda') Tienda
-                      select#tienda.form-control(name="tienda")
+                      select#tienda.form-control.form-control-sm(name="tienda")
                         option 1
                         option 2
                         option 3
@@ -80,14 +80,14 @@ html(lang="es")
                         option 5
                     .form-group
                       label(for="marca") Marca
-                      input#marca.form-control(type="text", name="marca")
+                      input#marca.form-control.form-control-sm(type="text", name="marca")
                     .form-group
                       label(for="tipo-equipo") Desc Tipo Equipo
-                      input#tipo-equipo.form-control(type="text", name="tipo-equipo")
+                      input#tipo-equipo.form-control.form-control-sm(type="text", name="tipo-equipo")
                     .form-group
                       label(for="modelo") Modelo
-                      input#modelo.form-control(type="text", name="modelo")
-                    .btns
+                      input#modelo.form-control.form-control-sm(type="text", name="modelo")
+                    .d-flex.justify-content-between
                       button.btn.btn-primary Filtrar
                       button.btn.btn-outline-primary(type="reset") Limpiar
             .tabla-filtro__item.tabla-filtro__item--tabla
@@ -192,7 +192,7 @@ html(lang="es")
                       .form-group
                         label(for="descripcion-equipo") Descripción Tipo Equipo
                         input.form-control#descripcion-equipo(type="text", name="descripcion-equipo")
-                  .lightbox__footer.modal-footer
+                  .lightbox__footer.modal-footer.d-flex.justify-content-between
                     a.btn.btn-outline-primary(href="#agregar-equipo" data-modal-close) Cancelar
                     a.btn.btn-primary(href="#agregar-equipo" data-modal-close) Guardar cambios
           // Modal Editar equipo
@@ -224,7 +224,7 @@ html(lang="es")
                       .form-group
                         label(for="descripcion-equipo") Descripción Tipo Equipo
                         input.form-control#descripcion-equipo(type="text", name="descripcion-equipo")
-                  .lightbox__footer.modal-footer
+                  .lightbox__footer.modal-footer.d-flex.justify-content-between
                     a.btn.btn-outline-primary(href="#editar-equipo" data-modal-close) Cancelar
                     a.btn.btn-primary(href="#editar-equipo" data-modal-close) Guardar cambios
           // Modal eliminar equipo
@@ -241,7 +241,7 @@ html(lang="es")
                     .lightbox__header__title Advertencia
                   .lightbox__content
                     h5.align-center  ¿Está seguro de eliminar el registro?
-                  .lightbox__footer.modal-footer
+                  .lightbox__footer.modal-footer.d-flex.justify-content-between
                     a.btn.btn-outline-danger(href="#eliminar-equipo" data-modal-close) Si
                     a.btn.btn-outline-primary(href="#eliminar-equipo" data-modal-close) No
 

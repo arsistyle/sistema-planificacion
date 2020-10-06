@@ -46,7 +46,7 @@ html(lang="es")
                       label(for="fecha-desde") Desde
                       .input-group
                         .input-group-prepend
-                          input.form-control.datepicker-input(type='text' id="fecha-desde" name="fecha-desde")
+                          input.form-control.form-control-sm.datepicker-input(type='text' id="fecha-desde" name="fecha-desde")
                         .input-group-append
                           label.input-group-text(for="fecha-desde")
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar4-week" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +57,7 @@ html(lang="es")
                       label(for="fecha-hasta") Hasta
                       .input-group
                         .input-group-prepend
-                          input.form-control.datepicker-input(type='text' id="fecha-hasta" name="fecha-hasta")
+                          input.form-control.form-control-sm.datepicker-input(type='text' id="fecha-hasta" name="fecha-hasta")
                         .input-group-append
                           label.input-group-text(for="fecha-hasta")
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar4-week" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -66,7 +66,7 @@ html(lang="es")
                             </svg>
                     .form-group
                       label(for='region') Región
-                      select#region.form-control(name="region")
+                      select#region.form-control.form-control-sm(name="region")
                         option 1
                         option 2
                         option 3
@@ -74,7 +74,7 @@ html(lang="es")
                         option 5
                     .form-group
                       label(for='ciudad') Ciudad
-                      select#ciudad.form-control(name="ciudad")
+                      select#ciudad.form-control.form-control-sm(name="ciudad")
                         option 1
                         option 2
                         option 3
@@ -82,7 +82,7 @@ html(lang="es")
                         option 5
                     .form-group
                       label(for='tipo-entrega') Tipo de Entrega
-                      select#tipo-entrega.form-control(name="tipo-entrega")
+                      select#tipo-entrega.form-control.form-control-sm(name="tipo-entrega")
                         option 1
                         option 2
                         option 3
@@ -90,7 +90,7 @@ html(lang="es")
                         option 5
                     .form-group
                       label(for='estado-preparacion') Estado Preparación
-                      select#estado-preparacion.form-control(name="estado-preparacion")
+                      select#estado-preparacion.form-control.form-control-sm(name="estado-preparacion")
                         option 1
                         option 2
                         option 3
@@ -98,13 +98,13 @@ html(lang="es")
                         option 5
                     .form-group
                       label(for='estado-fecha-compromiso') Estado Fecha Compromiso
-                      select#estado-fecha-compromiso.form-control(name="estado-fecha-compromiso")
+                      select#estado-fecha-compromiso.form-control.form-control-sm(name="estado-fecha-compromiso")
                         option 1
                         option 2
                         option 3
                         option 4
                         option 5
-                    .btns
+                    .d-flex.justify-content-between
                       button.btn.btn-primary Filtrar
                       button.btn.btn-outline-primary(type="reset") Limpiar
             .tabla-filtro__item.tabla-filtro__item--tabla
@@ -113,14 +113,14 @@ html(lang="es")
                   thead
                     tr
                       th Acciones
-                      th COD Nodo
+                      th.text-center COD Nodo
                       th Descripción Nodo
                       th COD Tipo Nodo
                       th Desc. Tipo Nodo
-                      th Horas x Turnos
-                      th Cantidad turnos
-                      th Especialidades Productivas
-                      th %Capacidad Express
+                      th.text-center Horas x Turnos
+                      th.text-center Cantidad turnos
+                      th.text-center Especialidades Productivas
+                      th.text-center %Capacidad Express
                       th Días de Operación
                   tbody
                     - for (let i = 0; i<20; i++) {
@@ -135,15 +135,15 @@ html(lang="es")
                               <svg width="18px" height="18px" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                               </svg>
-                        td COD #{i + 1}
+                        td.text-center COD #{i + 1}
                         td PLC San Bernardo
                         td Tipo 1
                         td Placacentro
-                        td 8
-                        td 1
-                        td
+                        td.text-center 8
+                        td.text-center 1
+                        td.text-center
                           a(href="#") 1
-                        td 10%
+                        td.text-center 10%
                         td.table-child
                           table.table-sm
                             tr
@@ -229,7 +229,7 @@ html(lang="es")
                       td
                         input.form-check-control#domingo(type="checkbox", name="domingo")
                     
-              .lightbox__footer.modal-footer
+              .lightbox__footer.modal-footer.d-flex.justify-content-between
                 a.btn.btn-outline-secondary(href="#agregar-nodo" data-modal-close) Cancelar
                 a.btn.btn-primary(href="#agregar-nodo" data-modal-close) Guardar cambios
       
@@ -247,7 +247,7 @@ html(lang="es")
                 .lightbox__header__title Eliminar
               .lightbox__content
                 h5.align-center  ¿Está seguro de eliminar este nodo?
-              .lightbox__footer.modal-footer
+              .lightbox__footer.modal-footer.d-flex.justify-content-between
                 a.btn.btn-outline-secondary(href="#eliminar-nodo" data-modal-close) Cancelar
                 a.btn.btn-outline-error(href="#eliminar-nodo" data-modal-close) Eliminar
                      

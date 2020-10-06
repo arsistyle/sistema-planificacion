@@ -1,7 +1,11 @@
 .tabla-filtro {
   $t: &;
+  border-top: 1px solid #dee2e6;
   form {
     margin-bottom: 30px;
+  }
+  .dataTables_wrapper {
+    padding-top: 10px;
   }
   @include media-breakpoint-up(md) {
     display: flex;
@@ -17,6 +21,17 @@
         // overflow-x: auto;
         width: 100%;
       }
+      .dataTables_wrapper {
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        .top, .bottom {
+          font-family: 'Roboto', sans-serif;
+        }
+        .bottom {
+          margin-top: auto;
+        }
+      }
     }
     &.active {
       #{$t}__item {
@@ -26,6 +41,7 @@
         }
         &--tabla {
           width: calc(100% - 300px);
+          padding-left: 20px;
         }
       }
     }

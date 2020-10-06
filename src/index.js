@@ -29,6 +29,7 @@ import {
   DATEPICKER,
   DATA_TABLE,
   FILTRO,
+  DESTACAR_FILA,
 } from './js/main';
 
 // Invocacion de funciones globales
@@ -40,3 +41,4 @@ HEADER_MENUES();
 DATEPICKER();
 DATA_TABLE();
 FILTRO();
+DESTACAR_FILA();

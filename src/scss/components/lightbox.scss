@@ -10,14 +10,14 @@ $themes-lightbox: ('success', 'error', 'info', 'warning');
     border-radius: 0;
   }
   &__header {
-    padding: 30px;
+    padding: 15px 20px;
     border-bottom: 1px solid theme-color('gris');
     &__icon {
       margin-right: 10px;
     }
     &__title {
       color: theme-color('gris');
-      font-size: 14px;
+      font-size: 12px;
       text-transform: uppercase;
     }
   }

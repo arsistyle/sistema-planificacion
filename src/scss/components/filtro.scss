@@ -1,5 +1,5 @@
 .filtro {
-  min-height: calc(100vh header(xs));
+  min-height: calc(100vh - #{header(xs)});
   position: fixed;
   background: white;
   top: header(xs);
@@ -19,9 +19,11 @@
     position: relative;
     z-index: 0;
     padding: 0;
+    padding-top: 20px;
     top: 0;
     transform: translateX(0);
-    padding-right: 30px;
+    padding-right: 100px;
+    border-right: 1px solid #dee2e6;
     min-height: auto;
   }
   &__title {
@@ -45,8 +47,11 @@
       height: 60%;
     }
     @include media-breakpoint-up(md) {
-      top: 0;
+      top: 20px;
     }
+  }
+  label {
+    margin-bottom: 0;
   }
   // border-right: 1px solid #dee2e6;
 }
