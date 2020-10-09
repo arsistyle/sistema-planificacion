@@ -2,12 +2,8 @@
   width: 100vw;
   height: 100vh;
   padding: 0 15px;
-  background: linear-gradient(
-    180deg,
-    #318ab0 0%,
-    rgba(94, 164, 193, 0.781598) 67.67%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: white url('../assets/bg.jpg') center center no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;

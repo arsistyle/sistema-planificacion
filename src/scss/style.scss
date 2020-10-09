@@ -39,6 +39,7 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 // Components
 @import './components/header.scss';
 @import './components/menu.scss';
+@import './components/banner.scss';
 @import './components/forms.scss';
 @import './components/actividades.scss';
 @import './components/lightbox.scss';
@@ -108,7 +109,7 @@ main {
 
 .datepicker {
   padding: 1rem;
-  z-index: 100 !important;
+  z-index: 9999 !important;
   table {
     tr {
       td {
