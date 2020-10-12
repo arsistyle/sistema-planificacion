@@ -33,6 +33,19 @@
         }
       }
     }
+    .table {
+      margin-bottom: 60px !important;
+    }
+    .bottom {
+      position: fixed;
+      left: 15px;
+      right: 15px;
+      bottom: 0;
+      padding: 30px;
+      height: 100px;
+      background: white;
+      z-index: 0;
+    }
     &.active {
       #{$t}__item {
         &--filtro {
