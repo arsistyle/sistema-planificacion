@@ -1,36 +1,48 @@
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BeautifyHtmlWebpackPlugin = require('beautify-html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require("webpack");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const BeautifyHtmlWebpackPlugin = require("beautify-html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const ASSET_PATH = process.env.ASSET_PATH || "/";
 
 const HTMLS = [
-  'index',
-  'login',
-  'mantenedor-equipos',
-  'seguimiento-ordenes',
-  'seguimiento-ordenes-detalle',
-  'mantenedor-nodos',
-  'mantenedor-nodos-especialidades',
-  'componentes',
+  "index",
+  "login",
+  "mantenedor-equipos",
+  "seguimiento-ordenes",
+  "seguimiento-ordenes-detalle",
+  "mantenedor-nodos",
+  "mantenedor-nodos-especialidades",
+  "componentes",
 ];
 
 module.exports = {
-  mode: 'production',
-  devtool: 'source-map',
-  entry: './src/index.js',
+  mode: "production",
+  devtool: "source-map",
+  entry: "./src/index.js",
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, ''),
+    filename: "main.js",
+    publicPath: '/',
+    path: path.resolve(__dirname, ""),
     umdNamedDefine: true, // optional
-    globalObject: 'this', // optional
+    globalObject: "this", // optional
+    
+  },
+  devServer: {
+    open: true
   },
   module: {
+    // devServer: {
+    //   contentBase: path.join(__dirname, ""),
+    //   compress: true,
+    //   port: 9000,
+    // },
     rules: [
       // HTML
       {
         test: /\.pug/,
-        loaders: ['html-loader', 'pug-html-loader'],
+        use: ["html-loader", "pug-html-loader"],
       },
 
       // JS
@@ -38,9 +50,9 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env'],
+            presets: ["@babel/preset-env"],
           },
         },
       },
@@ -49,7 +61,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         exclude: /(helpers)/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
 
       // IMAGES
@@ -57,10 +69,10 @@ module.exports = {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[name].[ext]',
-              outputPath: 'assets/',
+              name: "[name].[ext]",
+              outputPath: "assets/",
             },
           },
         ],
@@ -69,10 +81,10 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': "jquery'",
-      'window.$': 'jquery',
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery'",
+      "window.$": "jquery",
     }),
     ...HTMLS.map(
       (x) =>
@@ -88,7 +100,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      'jquery-ui': 'jquery-ui-dist/jquery-ui.js',
+      "jquery-ui": "jquery-ui-dist/jquery-ui.js",
     },
   },
 };

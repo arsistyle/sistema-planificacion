@@ -60,7 +60,9 @@ export const HEADER_MENUES = () => {
       x.addEventListener('click', (e) => {
         e.stopPropagation();
         menues.forEach((x) => x.classList.remove('header__menu--active'));
-        const menu = document.querySelector(e.currentTarget.getAttribute('data-toggle-menu'));
+        const menu = document.querySelector(
+          e.currentTarget.getAttribute('data-toggle-menu')
+        );
         // console.log(menu)
         if (menu) {
           menu.classList.contains('header__menu--active')
@@ -72,7 +74,9 @@ export const HEADER_MENUES = () => {
     document.body.addEventListener('click', (e) => {
       menues.forEach((x) => x.classList.remove('header__menu--active'));
     });
-    menues.forEach((x) => x.addEventListener('click', (e) => e.stopPropagation()));
+    menues.forEach((x) =>
+      x.addEventListener('click', (e) => e.stopPropagation())
+    );
   }
 };
 
@@ -204,7 +208,15 @@ export const DATEPICKER = () => {
 
   (function ($) {
     $.fn.datepicker.dates['es'] = {
-      days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+      days: [
+        'Domingo',
+        'Lunes',
+        'Martes',
+        'Miércoles',
+        'Jueves',
+        'Viernes',
+        'Sábado',
+      ],
       daysShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
       daysMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
       months: [
@@ -257,32 +269,99 @@ export const DATEPICKER = () => {
  * TableSorter
  */
 export const DATA_TABLE = () => {
-  $('.data-table').DataTable({
+  const filtro = document.querySelector('#filtro');
+
+  const table = $('.data-table').DataTable({
     responsive: true,
+    fixedHeader: {
+      enabled: true,
+      // header: true,
+      // headerOffset: 70,
+    },
+    // colReorder: true,
+    // rowReorder: {
+    //   selector: "tr",
+    // },
+    scrollY: '50vh',
+    scrollCollapse: true,
+    // select: true,
     dom:
-      '<"top"<"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"f>>>rt<"bottom"<"row"<"col-sm-12 col-md-5"l><"col-sm-12 col-md-7"p>>>',
+      '<"top"<"row"<"col-sm-12"f>><"datatable-container"rt><"bottom"<"row"<"col-sm-12 col-md-4"i><"col-sm-12 col-md-4"l><"col-sm-12 col-md-4"p>>>',
     language: {
-      lengthMenu: 'Registros por página _MENU_',
-      zeroRecords: 'Sin resultados',
-      info: 'Mostrando página _PAGE_ de _PAGES_',
-      infoEmpty: 'Sin registros disponibles',
-      infoFiltered: '(filtered from _MAX_ total records)',
+      decimal: ',',
+      thousands: '.',
+      info:
+        'Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros',
+      infoEmpty: 'Mostrando registros del 0 al 0 de un total de 0 registros',
+      infoPostFix: '',
+      infoFiltered: '(filtrado de un total de _MAX_ registros)',
       loadingRecords: 'Cargando...',
-      processing: 'Procesando...',
-      search: 'Buscar:',
-      // zeroRecords: 'Sin resultados',
+      lengthMenu: 'Mostrar _MENU_ registros',
       paginate: {
         first: 'Primero',
         last: 'Último',
         next: 'Siguiente',
         previous: 'Anterior',
       },
+      processing: 'Procesando...',
+      search: 'Buscar:',
+      // searchPlaceholder: 'Término de búsqueda',
+      zeroRecords: 'No se encontraron resultados',
+      emptyTable: 'Ningún dato disponible en esta tabla',
       aria: {
-        sortAscending: ': activate to sort column ascending',
-        sortDescending: ': activate to sort column descending',
+        sortAscending: ': Activar para ordenar la columna de manera ascendente',
+        sortDescending:
+          ': Activar para ordenar la columna de manera descendente',
+      },
+      buttons: {
+        create: 'Nuevo',
+        edit: 'Cambiar',
+        remove: 'Borrar',
+        copy: 'Copiar',
+        csv: 'fichero CSV',
+        excel: 'tabla Excel',
+        pdf: 'documento PDF',
+        print: 'Imprimir',
+        colvis: 'Visibilidad columnas',
+        collection: 'Colección',
+        upload: 'Seleccione fichero....',
+      },
+      select: {
+        rows: {
+          _: '%d filas seleccionadas',
+          0: '',
+          1: 'una fila seleccionada',
+        },
       },
     },
   });
+
+  const filtrar = (btn) => {
+    btn.addEventListener('click', (x) => {
+      x.preventDefault();
+      for (let i = 0; i < filtro.elements.length; i++) {
+        table
+          .columns(Number(filtro.elements[i].getAttribute('data-i')))
+          .search(filtro.elements[i].value)
+          .draw();
+      }
+      return false;
+    });
+  };
+  const resetear = (btn) => {
+    btn.addEventListener('click', (x) => {
+      x.preventDefault();
+      table.columns().search('').draw();
+      filtro.reset();
+      return false;
+    });
+  };
+  if (filtro) {
+    const btnFiltrar = filtro.querySelector('.filtrar-tabla');
+    const btnReset = filtro.querySelector('.reset-tabla');
+    filtrar(btnFiltrar);
+    resetear(btnReset);
+  }
 };
 
 /**

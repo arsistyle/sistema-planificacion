@@ -32,6 +32,9 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 @import '~bootstrap/scss/bootstrap';
 @import '~bootstrap-datepicker/dist/css/bootstrap-datepicker.css';
 @import './external/datatable-bs4.scss';
+@import './external/datatables.net-fixedheader-dt.scss';
+// @import './external/datatables.net-select-dt.scss';
+@import './external/datatables.net-rowreorder-dt.scss';
 
 // Pages
 @import './pages/login.scss';

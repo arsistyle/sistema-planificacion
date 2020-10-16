@@ -33,18 +33,26 @@
         }
       }
     }
-    .table {
-      margin-bottom: 60px !important;
-    }
+    // .table {
+    //   margin-bottom: 60px !important;
+    // }
+    // .bottom {
+    //   position: fixed;
+    //   left: 15px;
+    //   right: 15px;
+    //   bottom: 0;
+    //   padding: 30px;
+    //   height: 100px;
+    //   background: white;
+    //   z-index: 0;
+    // }
     .bottom {
-      position: fixed;
-      left: 15px;
-      right: 15px;
-      bottom: 0;
-      padding: 30px;
-      height: 100px;
-      background: white;
-      z-index: 0;
+      padding-top: 30px;
+    }
+    .datatable-container {
+      // height: 60vh;
+      // overflow: hidden;
+      // overflow-y: auto;
     }
     &.active {
       #{$t}__item {
