@@ -270,6 +270,8 @@ export const DATEPICKER = () => {
  */
 export const DATA_TABLE = () => {
   const filtro = document.querySelector('#filtro');
+  const columnas = document.querySelector('#columnas');
+  const filtroColumnas = document.querySelector('#filtro-columnas');
 
   const table = $('.data-table').DataTable({
     responsive: true,
@@ -278,7 +280,7 @@ export const DATA_TABLE = () => {
       // header: true,
       // headerOffset: 70,
     },
-    // colReorder: true,
+    colReorder: true,
     // rowReorder: {
     //   selector: "tr",
     // },
@@ -286,7 +288,8 @@ export const DATA_TABLE = () => {
     scrollCollapse: true,
     // select: true,
     dom:
-      '<"top"<"row"<"col-sm-12"f>><"datatable-container"rt><"bottom"<"row"<"col-sm-12 col-md-4"i><"col-sm-12 col-md-4"l><"col-sm-12 col-md-4"p>>>',
+      '<"datatable-container"rt><"bottom"<"row"<"col-sm-12 col-md-4"i><"col-sm-12 col-md-4"l><"col-sm-12 col-md-4"p>>>',
+      // '<"top"<"row"<"col-sm-12"f>><"datatable-container"rt><"bottom"<"row"<"col-sm-12 col-md-4"i><"col-sm-12 col-md-4"l><"col-sm-12 col-md-4"p>>>',
     language: {
       decimal: ',',
       thousands: '.',
@@ -336,6 +339,10 @@ export const DATA_TABLE = () => {
     },
   });
 
+  $('.filter-dt-external').keyup(function () {
+    table.search($(this).val()).draw();
+  });
+
   const filtrar = (btn) => {
     btn.addEventListener('click', (x) => {
       x.preventDefault();
@@ -361,6 +368,25 @@ export const DATA_TABLE = () => {
     const btnReset = filtro.querySelector('.reset-tabla');
     filtrar(btnFiltrar);
     resetear(btnReset);
+  }
+  if (columnas && filtroColumnas) {
+
+    filtroColumnas.addEventListener('click', e => {
+      filtroColumnas.classList.toggle('active');
+      if (filtroColumnas.classList.contains('active')) {
+        $(columnas).slideDown('fast')
+      } else {
+        $(columnas).slideUp('fast')
+      }
+    })
+
+    const checks = document.querySelectorAll('.form-check-input');
+    checks.forEach((x) => {
+      x.addEventListener('change', (e) => {
+        const col = table.column(e.target.getAttribute('data-column'));
+        col.visible(!col.visible());
+      });
+    });
   }
 };
 

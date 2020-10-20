@@ -1,12 +1,12 @@
 .tabla-filtro {
   $t: &;
-  border-top: 1px solid #dee2e6;
+  // border-top: 1px solid #dee2e6;
   form {
     margin-bottom: 30px;
   }
-  .dataTables_wrapper {
-    padding-top: 10px;
-  }
+  // .dataTables_wrapper {
+  //   padding-top: 10px;
+  // }
   @include media-breakpoint-up(md) {
     display: flex;
     &__item {

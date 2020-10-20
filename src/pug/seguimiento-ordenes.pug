@@ -18,7 +18,7 @@ html(lang="es")
           h1 Consulta de Ordenes
 
           .row
-            .col-xs-12.col-md-6.col-lg-4
+            .col-sm-12.col-md-6.col-lg-4
               .btns
                 a.btn.btn-primary(href="#" data-filtro=".tabla-filtro") Filtrar por
                 a.btn.btn-outline-primary(href="#") Exportar
@@ -31,12 +31,26 @@ html(lang="es")
                     <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
                     <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
                   </svg>
+                a.btn.btn-outline-primary(href="#" id="filtro-columnas") Columnas
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-filter" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                  </svg>
+              .filtro-columnas#columnas.pb-3(style="display:none")
+                - const cols = ['N° de pedido', 'N° de Boleta', 'Ciudad', 'Cliente', 'Tipo de entrega', 'Avance Preparación', 'Fecha de compromiso', 'Estado Fecha compromiso']
+                - for (let i = 0; i<cols.length; i++) {
+                  .form-check-inline
+                    input(type="checkbox" id=`col-${i}` data-column=i checked).form-check-input
+                    label(for=`col-${i}`).form-check-label=cols[i]
+                - }
             .col-xs-12.col-md-6
               nav.nav
                 a.nav__link.nav__link--active(href="#") Creadas
                 a.nav__link(href="#") Planificadas 
                 a.nav__link(href="#") En Producción
                 a.nav__link(href="#") Finalizadas
+            .col-sm-12.col-md-4.col-lg-2
+              input(type="search" placeholder="Buscar:").form-control.form-control-sm.d-inline-block.filter-dt-external
+            
           
           
           .tabla-filtro
@@ -152,7 +166,7 @@ html(lang="es")
                         td En Preparación
                           .progress
                             .progress-bar(role='progressbar' style='width: 50%' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100')
-                        td 4 Oct
+                        td.text-center 4 Oct
                         td 
                           .badge.badge-warning.badge-circle +2
                       tr
@@ -165,7 +179,7 @@ html(lang="es")
                         td Finalizado
                           .progress
                             .progress-bar(role='progressbar' style='width: 100%' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100')
-                        td 4 Oct
+                        td.text-center 4 Oct
                         td 
                           .badge.badge-success Nuevo
                     - }

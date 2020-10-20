@@ -17,21 +17,36 @@ html(lang="es")
         .wrapper__container
           h1 Mantenedor de Nodos
 
-          .btns
-            a.btn.btn-primary(href="#" data-filtro=".tabla-filtro") Filtrar por
-            a.btn.btn-primary(href="#agregar-nodo" data-modal-open) Agregar Nodo
-            a.btn.btn-outline-primary(href="#") Exportar
-              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
-                <path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-              </svg>
-            a.btn.btn-outline-primary(href="#") Recargar
-              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-clockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-              </svg>
-          
-          
+          .row
+            .col-sm-12.col-md-8.col-lg-10
+              .btns
+                a.btn.btn-primary(href="#" data-filtro=".tabla-filtro") Filtrar por
+                a.btn.btn-primary(href="#agregar-nodo" data-modal-open) Agregar Nodo
+                a.btn.btn-outline-primary(href="#") Exportar
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
+                    <path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
+                  </svg>
+                a.btn.btn-outline-primary(href="#") Recargar
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-clockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                  </svg>
+                a.btn.btn-outline-primary(href="#" id="filtro-columnas") Columnas
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-filter" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                  </svg>
+              .filtro-columnas#columnas.pb-3(style="display:none")
+                - const cols = ['Acciones','COD Nodo','Descripción Nodo','COD Tipo Nodo','Desc. Tipo Nodo','Horas x Turnos','Cantidad turnos','Especialidades Productivas','% Capacidad Express','Días de Operación']
+                - for (let i = 0; i<cols.length; i++) {
+                  .form-check-inline
+                    input(type="checkbox" id=`col-${i}` data-column=i checked).form-check-input
+                    label(for=`col-${i}`).form-check-label=cols[i]
+                - }
+
+            .col-sm-12.col-md-4.col-lg-2
+              input(type="search" placeholder="Buscar:").form-control.form-control-sm.d-inline-block.filter-dt-external
+
           .tabla-filtro
             .tabla-filtro__item.tabla-filtro__item--filtro
               .filtro
@@ -41,16 +56,16 @@ html(lang="es")
                     <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                   </svg>
                 .filtro__container
-                  form#filtro(action="#mantenedor-nodos").filtro__form
+                  form#filtro.filtro__form
                     .form-group
                       label(for="cod-nodo") COD Nodo
-                      input#cod-nodo.form-control(type="text", name="cod-nodo", data-i="1")
+                      input#cod-nodo.form-control(type="text" name="cod-nodo" data-i="1")
                     .form-group
                       label(for="cod-tipo-nodo") COD Tipo Nodo
-                      input#cod-tipo-nodo.form-control(type="text", name="cod-tipo-nodo", data-i="3")
+                      input#cod-tipo-nodo.form-control(type="text" name="cod-tipo-nodo" data-i="3")
                     .form-group
                       label(for="cantidad-turnos") Cantidad turnos
-                      input#cantidad-turnos.form-control(type="text", name="cantidad-turnos", data-i="6")
+                      input#cantidad-turnos.form-control(type="text" name="cantidad-turnos" data-i="6")
                     .d-flex.justify-content-between
                       //- NUEVO: Agregar los nuevos botones
                       a(href="#").btn.btn-primary.filtrar-tabla Filtrar
@@ -114,7 +129,7 @@ html(lang="es")
                                   </svg>
                               - }
 
-                        
+
                     - }
 
       // MODALS
@@ -136,10 +151,10 @@ html(lang="es")
                 form(action="")
                   .form-group
                     label(for="codigo-nodo") Código nodo
-                    input.form-control#codigo-nodo(type="text", name="codigo-nodo")
+                    input.form-control#codigo-nodo(type="text" name="codigo-nodo")
                   .form-group
                     label(for="descripcion-nodo") Descripción nodo
-                    input.form-control#descripcion-nodo(type="text", name="descripcion-nodo")
+                    input.form-control#descripcion-nodo(type="text" name="descripcion-nodo")
                   .form-group
                     label(for="descripcion-tipo-nodo") Descripción tipo nodo
                     select.form-control#descripcion-tipo-nodo(name="descripcion-tipo-nodo")
@@ -148,13 +163,13 @@ html(lang="es")
                       option 3
                   .form-group
                     label(for="horas-turno-nodo") Horas x Turno
-                    input.form-control#horas-turno-nodo(type="text", name="horas-turno-nodo")
+                    input.form-control#horas-turno-nodo(type="text" name="horas-turno-nodo")
                   .form-group
                     label(for="cantidad-turnos-nodo") Horas x Turno
-                    input.form-control#cantidad-turnos-nodo(type="text", name="cantidad-turnos-nodo")
+                    input.form-control#cantidad-turnos-nodo(type="text" name="cantidad-turnos-nodo")
                   .form-group
                     label(for="capacidad-express-nodo") % Capacidad Express
-                    input.form-control#capacidad-express-nodo(type="text", name="capacidad-express-nodo")
+                    input.form-control#capacidad-express-nodo(type="text" name="capacidad-express-nodo")
                   p Días de Operación
                   table
                     tr
@@ -167,24 +182,24 @@ html(lang="es")
                       th DOM &nbsp;
                     tr
                       td
-                        input.form-check-control#lunes(type="checkbox", name="lunes")
+                        input.form-check-control#lunes(type="checkbox" name="lunes")
                       td
-                        input.form-check-control#martes(type="checkbox", name="martes")
+                        input.form-check-control#martes(type="checkbox" name="martes")
                       td
-                        input.form-check-control#miercoles(type="checkbox", name="miercoles")
+                        input.form-check-control#miercoles(type="checkbox" name="miercoles")
                       td
-                        input.form-check-control#jueves(type="checkbox", name="jueves")
+                        input.form-check-control#jueves(type="checkbox" name="jueves")
                       td
-                        input.form-check-control#viernes(type="checkbox", name="viernes")
+                        input.form-check-control#viernes(type="checkbox" name="viernes")
                       td
-                        input.form-check-control#sabado(type="checkbox", name="sabado")
+                        input.form-check-control#sabado(type="checkbox" name="sabado")
                       td
-                        input.form-check-control#domingo(type="checkbox", name="domingo")
-                    
+                        input.form-check-control#domingo(type="checkbox" name="domingo")
+
               .lightbox__footer.modal-footer.d-flex.justify-content-between
                 a.btn.btn-outline-secondary(href="#agregar-nodo" data-modal-close) Cancelar
                 a.btn.btn-primary(href="#agregar-nodo" data-modal-close) Guardar cambios
-      
+
       // Eliminar nodo
       #eliminar-nodo.modal.fade(tabindex='-1' aria-hidden='true' show="true" role="dialog")
         .modal-dialog.modal-dialog-centered.modal-md
@@ -202,7 +217,7 @@ html(lang="es")
               .lightbox__footer.modal-footer.d-flex.justify-content-between
                 a.btn.btn-outline-secondary(href="#eliminar-nodo" data-modal-close) Cancelar
                 a.btn.btn-outline-error(href="#eliminar-nodo" data-modal-close) Eliminar
-                     
+
 
 
       include ./includes/footer
